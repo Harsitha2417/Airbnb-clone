@@ -30,12 +30,32 @@ app.get("/listings",async (req,res) => {
     res.render("listings/index.ejs", {allListings });
 });
 
+//New Route
+app.get("/listings/new", (req,res) => {
+    res.render("listings/new.ejs");
+});
+//This is placed before show route because app.js is thinking new is a id 
+//as it is written after show route (initially)
+
+
+//Create Route
+app.post("/listings",async(req,res)=>{
+    // let {title,description,image,price,country,location} =req.body;
+    // let  listing = req.body.listing;
+    // console.log(listing);
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings");
+});
+
 //Show Route - to display each individual details
 app.get("/listings/:id",async (req,res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
     res.render("listings/show.ejs",{ listing })
 });
+
+
 
 // app.get("/testListing", async (req,res) => {
 //     let sampleListing = new Listing ({
