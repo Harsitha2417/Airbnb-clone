@@ -9,9 +9,9 @@ const listingSchema = new Schema ({
     description : String,
     image : {
         type :String,
-        default : "C:\Users\harsi\Downloads\emily-irene-photo-co-94bKkPKVlQo-unsplash.jpg" ,
+        default : "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" ,
         set : (v) => v ==="" 
-        ? "C:\Users\harsi\Downloads\emily-irene-photo-co-94bKkPKVlQo-unsplash.jpg" 
+        ? "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" 
         : v,
     },
     price : Number,
