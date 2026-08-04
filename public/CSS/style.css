@@ -89,7 +89,7 @@ color:#222;
     opacity:0.2;
     background-color: white;
 }
-.add-btn{
+.add-btn,.edit-btn{
     background-color: #fe424d !important;
     border:none !important;
 }
